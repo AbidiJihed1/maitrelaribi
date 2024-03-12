@@ -25,7 +25,7 @@ const HonorairesPolitiqueComponent = ({ selectedLanguage }) => {
       </p> */}
       {selectedLanguage === "fr" ? (
   <p>
-    Lors du premier rendez-vous, le cabinet procède à une première analyse du dossier et révèle aux clients quelles sont, en droit, les options disponibles et en matière contentieuse, les procédures judiciaires susceptibles d’être applicables.
+    <h3>Lors du premier rendez-vous</h3>, le cabinet procède à une première analyse du dossier et révèle aux clients quelles sont, en droit, les options disponibles et en matière contentieuse, les procédures judiciaires susceptibles d’être applicables.
     Sur la base d’une information complète et d’engagements réciproques convenus, et conformément aux usages de la profession, les honoraires sont établis en fonction des éléments suivants :
     <ul>
       <li> Du temps consacré à l’affaire ;</li>
@@ -38,7 +38,7 @@ const HonorairesPolitiqueComponent = ({ selectedLanguage }) => {
   </p>
 ) : selectedLanguage === "ar" ? (
   <p>
-    أثناء الموعد الأول، يقوم المكتب بإجراء تحليل أولي للملف ويكشف للعملاء عن الخيارات المتاحة من الناحية القانونية وفيما يتعلق بالنزاعات، الإجراءات القضائية التي قد تكون قابلة للتطبيق.
+    ، يقوم المكتب بإجراء تحليل أولي للملف ويكشف للعملاء عن الخيارات المتاحة من الناحية القانونية وفيما يتعلق بالنزاعات، الإجراءات القضائية التي قد تكون قابلة للتطبيق.<h3>أثناء الموعد الأول</h3>
     استنادًا إلى معلومات شاملة والالتزامات المتبادلة المتفق عليها، ووفقًا لتقاليد المهنة، يتم تحديد الرسوم استنادًا إلى العناصر التالية:
     <ul>
       <li> من الوقت المخصص للقضية ؛</li>
@@ -51,7 +51,7 @@ const HonorairesPolitiqueComponent = ({ selectedLanguage }) => {
   </p>
 ) : (
   <p>
-    During the initial appointment, the firm conducts an initial analysis of the case and informs clients about the available legal options and, in contentious matters, the applicable legal procedures.
+    <h3>During the initial appointment</h3>, the firm conducts an initial analysis of the case and informs clients about the available legal options and, in contentious matters, the applicable legal procedures.
     Based on comprehensive information and mutually agreed commitments, and in accordance with professional practices, fees are established based on the following elements:
     <ul>
       <li> Time devoted to the case;</li>
@@ -73,12 +73,13 @@ const HonorairesPolitiqueComponent = ({ selectedLanguage }) => {
       <div className="row"  style={{border:"solid gray", padding:"25px",marginBottom:"15px"}}>
       <div className="col-8" >
       <p>
-        {selectedLanguage === 'ar'
-          ? 'في الساعة (مع صفحة زمنية)'
-          : selectedLanguage === 'fr'
-          ? 'A l\'heure (avec fiche de temps passé)'
-          : 'Hourly (with time sheet)'}
-      </p>
+  {selectedLanguage === 'ar'
+    ? <> (مع صفحة زمنية) <h3>في الساعة</h3></>
+    : selectedLanguage === 'fr'
+    ? <><h3>A l'heure</h3> avec fiche de temps passé</>
+    : <><h3>Hourly</h3> (with time sheet)</>}
+</p>
+
       <p>
         {selectedLanguage === 'ar'
           ? 'سيتغير الرسم الساعي وفقًا لتعقيد القضية وجودة وخبرة المشاركين.'
@@ -99,10 +100,10 @@ const HonorairesPolitiqueComponent = ({ selectedLanguage }) => {
       <div className="col-8" >
       <p>
         {selectedLanguage === 'ar'
-          ? 'بمجموع'
+          ? <h3>بمجموع</h3>
           : selectedLanguage === 'fr'
-          ? 'Au forfait'
-          : 'Fixed Fee'}
+          ? <h3>Au forfait</h3>
+          : <h3>Fixed Fee</h3>}
       </p>
       <p>
         {selectedLanguage === 'ar'
@@ -120,10 +121,10 @@ const HonorairesPolitiqueComponent = ({ selectedLanguage }) => {
       <div className="col-8" >
       <p>
         {selectedLanguage === 'ar'
-          ? 'بسعر ثابت مخفض ومكمل للنتائج'
+          ? <h3>بسعر ثابت مخفض ومكمل للنتائج</h3>
           : selectedLanguage === 'fr'
-          ? 'Au forfait réduit et complément de résultat'
-          : 'Reduced flat rate and result supplement'}
+          ? <h3>Au forfait réduit et complément de résultat</h3>
+          : <h3>Reduced flat rate and result supplement</h3>}
       </p>
       <p>
         {selectedLanguage === 'ar'
@@ -145,10 +146,10 @@ const HonorairesPolitiqueComponent = ({ selectedLanguage }) => {
       <div className="col-8" >
       <p>
         {selectedLanguage === 'ar'
-          ? 'وفقًا لاتفاقية مساعدة سنوية'
+          ? <h3>وفقًا لاتفاقية مساعدة سنوية</h3>
           : selectedLanguage === 'fr'
-          ? 'Selon une convention d’assistance annuelle'
-          : 'According to an annual assistance agreement'}
+          ? <h3>Selon une convention d’assistance annuelle</h3>
+          : <h3>According to an annual assistance agreement</h3>}
       </p>
       <p>
         {selectedLanguage === 'ar'

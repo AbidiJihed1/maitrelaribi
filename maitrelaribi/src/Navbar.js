@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { FaEnvelope, FaPhone } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import logo from "./logo.png";
+import logo from "./logo.jpg";
 import "./navbar.css";
 const Navbar = ({ handleLanguageChange, selectedLanguage }) => {
   const [scrolling, setScrolling] = useState(false);
@@ -41,15 +41,12 @@ const Navbar = ({ handleLanguageChange, selectedLanguage }) => {
           backgroundImage: `url(https://res.cloudinary.com/dm1xlu8ce/image/upload/v1707488156/pe468qchnhzaye0az6sb.jpg)`,
           backgroundSize: "cover",
           backgroundPosition: "center",
-          minHeight:
-            window.location.href === "http://134.209.228.166/"
-              ? "100vh"
-              : "30vh",
+          minHeight:"30vh"
         }}
       >
         <nav
           style={{
-            backgroundColor: scrolling ? "#7ba59f" : "transparent",
+            backgroundColor: scrolling ? "#7ba59f" : "#7ba59f",
             position: "fixed",
             width: "100%",
             zIndex: 1000,
@@ -78,7 +75,7 @@ const Navbar = ({ handleLanguageChange, selectedLanguage }) => {
                 }}
               >
                 <FaPhone style={{ color: "white" }} />{" "}
-                {selectedLanguage === "ar" ? "الهاتف:" : "PHONE:"} +216 71 562
+                +216 71 562
                 938
               </p>
             </div>

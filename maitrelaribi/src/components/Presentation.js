@@ -54,8 +54,8 @@ const PhotoSection = ({ selectedLanguage }) => {
           </p>
         </div>
       </div>
-
-      <div className="about-us-container">
+<div className="row">
+      <div className="col-4">
         <h2>
           {selectedLanguage === "ar"
             ? "من نحن ؟"
@@ -71,24 +71,10 @@ const PhotoSection = ({ selectedLanguage }) => {
               ? "تجمع مكتب لعريبي للمحاماة مجموعة من الأشخاص الذين تخرجوا من تخصصات مختلفة، حيث عاش كل شخص مسارًا شكل تجربته، مما سمح بنضج نهج محدد، وممارسة العمل في هياكل متنوعة واستيعاب أفضل الاستراتيجيات لتقديم الحل الأمثل لك."
               : "LAARIBI LAW FIRM brings together profiles from different backgrounds, each having gone through a journey that has shaped their experience, allowing for the development of a specific approach, the practice within various structures, and the integration of the best tactics to provide you with an optimal solution."}           
           </li>
-          <li>
-            {selectedLanguage === "fr"
-              ? "Avocat au Barreau de Tunis depuis 1999."
-              : selectedLanguage === "ar"
-              ? "محام في نقابة تونس منذ عام 1999."
-              : "Lawyer at the Bar of Tunis since 1999."}
-          </li>
-          <li>
-            {selectedLanguage === "fr"
-              ? "Mastère en sciences criminelles."
-              : selectedLanguage === "ar"
-              ? "ماجستير في العلوم الجنائية."
-              : "Master's degree in criminal sciences."}
-          </li>
         </ul>
       </div>
 
-      <div className="values-container">
+      <div className="col-4">
         <h2>
           {selectedLanguage === "ar"
             ? "قيمنا"
@@ -142,7 +128,7 @@ const PhotoSection = ({ selectedLanguage }) => {
         </ul>
       </div>
 
-      <div className="perspective-container">
+      <div className="col-4">
         <h2>
           {selectedLanguage === "ar"
             ? "روؤيتنا العالمية"
@@ -157,6 +143,7 @@ const PhotoSection = ({ selectedLanguage }) => {
             ? "حتى الآن ، يعتمد مكتب LAARIBI LAW FIRM على شبكة من التحالفات الاستراتيجية المختارة بعناية ، مما يضمن تقديم خدمات استشارية وحلول قانونية للعملاء الخاصين والأفراد من جميع الأحجام والجنسيات."
             : "To date, LAARIBI LAW FIRM relies on a network of carefully selected strategic alliances, ensuring expert advice and legal solutions for private clients and individuals of all sizes and nationalities."}
         </p>
+      </div>
       </div>
     </section>
   );
