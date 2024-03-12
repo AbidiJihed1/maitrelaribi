@@ -2,7 +2,6 @@ import React from "react";
 import './ConsultationComponent.css'; // Add a separate CSS file for styling
 
 const ConsultationComponent = ({ selectedLanguage }) => {
-
   return (
     <div className="consultation-container" style={{ marginTop: "25px", direction: selectedLanguage === 'ar' ? 'rtl' : 'ltr' }}>
       <h2>
@@ -65,6 +64,7 @@ const ConsultationComponent = ({ selectedLanguage }) => {
       
       </ul>
     </div>
+   
   );
 };
 

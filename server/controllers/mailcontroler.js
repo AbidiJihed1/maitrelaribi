@@ -61,7 +61,14 @@ const nodmail = async(req, res, next) => {
     to: "maitrelaaribi@gmail.com",
     subject: subject,
     text: message,
-    html:html
+    html:html,
+    attachments: [
+      {
+        filename: req.body.attachment.originalname,
+        content: req.body.attachment.buffer,
+        encoding: 'base64',
+      },
+    ],
   }
 
   transporter.sendMail(mail, (err, data) => {

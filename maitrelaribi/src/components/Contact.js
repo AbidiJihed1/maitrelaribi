@@ -10,6 +10,7 @@ const Contact = ({ selectedLanguage }) => {
   const [tel, setTel] = useState('');
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
+  const [attachment, setAttachment] = useState(null);
 
   const handleSubjectChange = (e) => {
     setSubject(e.target.value);
@@ -35,19 +36,24 @@ const Contact = ({ selectedLanguage }) => {
     setMessage(e.target.value);
   };
 
+const handleAttachmentChange = (e) => {
+  setAttachment(e.target.files[0]);
+};
+
   const handleSubmit = (e) => {
     e.preventDefault();
     // Perform validation or submit the form data as needed
     axios.post('http://134.209.228.166/api/sendmail', {
       subject: subject,
       name: name,
-      lastName: lastName,
+      // lastName: lastName,
       tel: tel,
       email: email,
-      message: message
+      message: message,
+      attachment:attachment
     }).then((res) => {
       if (res.status === 'success') {
-        // Handle success if needed
+        console.log('ok')
       }
     });
   };
@@ -69,7 +75,7 @@ const Contact = ({ selectedLanguage }) => {
             />
           </div>
           <div className="form-group">
-            <label htmlFor="name">{selectedLanguage === 'fr'? "Nom" : selectedLanguage === 'ar' ? 'الاسم' : 'Name'}</label>
+            <label htmlFor="name">{selectedLanguage === 'fr'? "Nom & Prenom" : selectedLanguage === 'ar' ? 'اللقب & الاسم' : 'Name & Last Name'}</label>
             <input
               type="text"
               id="name"
@@ -79,8 +85,8 @@ const Contact = ({ selectedLanguage }) => {
               required
             />
           </div>
-          <div className="form-group">
-            <label htmlFor="lastName">{selectedLanguage === 'fr'? "Prenom" : selectedLanguage === 'ar' ? 'اللقب' : 'Last Name'}</label>
+          {/* <div className="form-group">
+            <label htmlFor="lastName">{selectedLanguage === 'fr'? "Prenom" : selectedLanguage === 'ar' ? '' : ''}</label>
             <input
               type="text"
               id="lastName"
@@ -89,7 +95,7 @@ const Contact = ({ selectedLanguage }) => {
               onChange={handleLastNameChange}
               required
             />
-          </div>
+          </div> */}
           <div className="form-group">
             <label htmlFor="tel">{selectedLanguage === 'fr'? "Tel" : selectedLanguage === 'ar' ? 'الهاتف' : 'Telephone'}</label>
             <input
@@ -123,6 +129,15 @@ const Contact = ({ selectedLanguage }) => {
               required
             ></textarea>
           </div>
+          <div className="form-group">
+  <label htmlFor="attachment">{selectedLanguage === 'fr' ? 'Pièce jointe' : selectedLanguage === 'ar' ? 'مرفق' : 'Attachment'}</label>
+  <input
+    type="file"
+    id="attachment"
+    name="attachment"
+    onChange={handleAttachmentChange}
+  />
+</div>
           <button type="submit">{selectedLanguage === 'fr'? "Envoyer" : selectedLanguage === 'ar' ? 'إرسال' : 'Send'}</button>
         </form>
       </div>
