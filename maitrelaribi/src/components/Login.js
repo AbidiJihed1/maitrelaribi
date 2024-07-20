@@ -9,7 +9,7 @@ const Login = () => {
   const navigate=useNavigate()
   const handleLogin = async () => {
     try {
-      const response = await axios.post('http://164.92.233.115/api/login', { email, password });
+      const response = await axios.post('https://www.maitrelaaribi.com/api/login', { email, password });
       // Assuming the API returns a token upon successful login
       const token = response.data.token;
       // Store the token in localStorage or Redux state for future requests

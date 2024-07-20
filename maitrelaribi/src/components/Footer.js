@@ -12,9 +12,9 @@ const Footer = () => {
       <h4>LAARIBI LAW FIRM <br />
             Maitre Fouzi Laaribi</h4>
         <div className="footer-contact" style={{margin:"10px"}}>
-          <p className='pfouter'><FaPhone /> Phone: +216 71 562 938</p>
+          <p className='pfouter'><FaPhone /> Phone: +216 70 256 595</p>
           <p className='pfouter'><FaPhone /> Phone: +216 98 351 049</p>
-          <p className='pfouter'><FaEnvelope /> Email: <a href="maitrelaaribi@gmail.com">maitrelaaribi@gmail.com</a></p>
+          <p className='pfouter'><FaEnvelope /> Email: <a href="contact@maitrelaaribi.com">contact@maitrelaaribi.com</a></p>
           <p className='pfouter'><FaLinkedin /> LinkedIn: <a href="https://www.linkedin.com/in/llf-laaribi-law-firm-4ba749172/" target="_blank" rel="noopener noreferrer">laaribi-law-firm</a></p>
         </div>
         </div>

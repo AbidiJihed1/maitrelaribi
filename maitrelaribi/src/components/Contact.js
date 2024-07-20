@@ -43,7 +43,7 @@ const handleAttachmentChange = (e) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     // Perform validation or submit the form data as needed
-    axios.post('http://164.92.233.115/api/sendmail', {
+    axios.post('https://www.maitrelaaribi.com/api/sendmail', {
       subject: subject,
       name: name,
       // lastName: lastName,

@@ -17,8 +17,8 @@ const Maps = () => {
             44 Bd Bab Benet<br />
             Bab Benet, Tunis, Tunisie<br />
               Tél. : +216 98 351 049<br />
-              Fax. : +216 71 562 938<br />
-              maitrelaaribi@gmail.com
+              Fax. : +216 70 256 595<br />
+              contact@maitrelaaribi.com
             </p><br />
           </div>
     <div className='col-7'>
