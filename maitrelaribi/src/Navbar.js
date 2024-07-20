@@ -75,8 +75,7 @@ const Navbar = ({ handleLanguageChange, selectedLanguage }) => {
                 }}
               >
                 <FaPhone style={{ color: "white" }} />{" "}
-                +216 71 562
-                938
+                +216 70 256 595
               </p>
             </div>
 
