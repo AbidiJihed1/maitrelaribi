@@ -14,8 +14,8 @@ const Maps = () => {
     <div className="col-4">
             <h4 className="media-heading">Tunisie</h4>
             <p style={{ paddingTop: '10px' }}>
-            44 Bd Bab Benet<br />
-            Bab Benet, Tunis, Tunisie<br />
+            Complexe Carthage Center 2ème étage A27<br />
+            aveneu de carthage Tunis 1049, Tunisie<br />
               Tél. : +216 98 351 049<br />
               Fax. : +216 70 256 595<br />
               contact@maitrelaaribi.com

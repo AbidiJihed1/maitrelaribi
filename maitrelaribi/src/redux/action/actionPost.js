@@ -10,10 +10,10 @@ export const get_product = () => async (dispatch) => {
        })
 
     } catch (error) {
-        Swal.fire({
-            icon: "error",
-            title: "Oops..."
-          });
+        // Swal.fire({
+        //     icon: "error",
+        //     title: "Oops..."
+        //   });
         }
 
     
