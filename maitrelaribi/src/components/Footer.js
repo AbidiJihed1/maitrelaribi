@@ -9,7 +9,7 @@ const Footer = () => {
       <div className='row'>
       <div className='col-4'>
       <div className="footer-content">
-      <h4>LAARIBI LAW FIRM <br />
+      <h4 id='larribi'>LAARIBI LAW FIRM <br />
             Maitre Fouzi Laaribi</h4>
         <div className="footer-contact" style={{margin:"10px"}}>
           <p className='pfouter'><FaPhone /> Phone: +216 70 256 595</p>
