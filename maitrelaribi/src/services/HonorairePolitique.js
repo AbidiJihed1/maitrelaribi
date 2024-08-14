@@ -37,8 +37,10 @@ const HonorairesPolitiqueComponent = ({ selectedLanguage }) => {
     A ces honoraires, peuvent éventuellement se rajouter des frais et dépens ainsi que les frais du cabinet.
   </p>
 ) : selectedLanguage === "ar" ? (
+  
   <p>
-    ، يقوم المكتب بإجراء تحليل أولي للملف ويكشف للعملاء عن الخيارات المتاحة من الناحية القانونية وفيما يتعلق بالنزاعات، الإجراءات القضائية التي قد تكون قابلة للتطبيق.<h3>أثناء الموعد الأول</h3>
+    <h3>أثناء الموعد الأول</h3><br />
+    ، يقوم المكتب بإجراء تحليل أولي للملف ويكشف للعملاء عن الخيارات المتاحة من الناحية القانونية وفيما يتعلق بالنزاعات، الإجراءات القضائية التي قد تكون قابلة للتطبيق.
     استنادًا إلى معلومات شاملة والالتزامات المتبادلة المتفق عليها، ووفقًا لتقاليد المهنة، يتم تحديد الرسوم استنادًا إلى العناصر التالية:
     <ul>
       <li> من الوقت المخصص للقضية ؛</li>
@@ -74,10 +76,10 @@ const HonorairesPolitiqueComponent = ({ selectedLanguage }) => {
       <div className="col-8" >
       <p>
   {selectedLanguage === 'ar'
-    ? <> (مع صفحة زمنية) <h3>في الساعة</h3></>
+    ? <> <h3> اعتماد وحدة الساعة لتقدير الأتعاب</h3></>
     : selectedLanguage === 'fr'
-    ? <><h3>A l'heure</h3> avec fiche de temps passé</>
-    : <><h3>Hourly</h3> (with time sheet)</>}
+    ? <><h3>A l'heure</h3></>
+    : <><h3>Hourly</h3></>}
 </p>
 
       <p>

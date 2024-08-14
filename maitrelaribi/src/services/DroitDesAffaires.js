@@ -16,7 +16,7 @@ const BusinessLawComponent = ({ selectedLanguage }) => {
         {selectedLanguage === 'ar'
           ? 'يقدم قسم قانون الأعمال وقانون الشركات والقانون التجاري استشارات قانونية للشركات والمؤسسات والجهات المالية والتأمين والصناعية عند إنشاء الشركات، في الأنشطة العادية والاستثنائية للشركة.'
           : selectedLanguage === 'fr'
-          ? 'Le Département du droit des affaires, droit sociétés et droit commercial conseille juridiquement les entreprises, les opérateurs institutionnels, financiers, d\'assurance et industriels lors de la création de sociétés, dans les activités ordinaires et extraordinaires de l\'entreprise.'
+          ? "Le Département du droit des affaires, droit sociétés et droit commercial présente des conseils juridiques aux entreprises, aux opérateurs institutionnels, financiers, d'assurances et industriels lors de la création de sociétés, dans les activités ordinaires et extraordinaires de l'entreprise."
           : 'The Business Law, Corporate Law, and Commercial Law Department provides legal consultations to companies, financial institutions, insurance, and industrial entities when establishing companies, in the ordinary and extraordinary activities of the company.'}
       </p>
       <h3>
@@ -29,28 +29,28 @@ const BusinessLawComponent = ({ selectedLanguage }) => {
       <ul>
         <li>
           {selectedLanguage === 'ar'
-            ? 'إنشاء شركات تونسية أو أجنبية، جزئياً أو كلياً تصديرية أو غير مقيمة.'
+            ? '	تكوين شركات تونسية أو أجنبية، جزئياً أو كلياً تصديرية أو غير مقيمة.'
             : selectedLanguage === 'fr'
             ? 'Création de sociétés tunisiennes ou étrangères, partiellement ou totalement exportatrices résidente ou non résidente.'
-            : 'Establishment of Tunisian or foreign companies, partially or entirely export-oriented, resident or non-resident.'}
+            : '	Establishment of Tunisian or foreign companies, partially or entirely export-oriented, resident or non-resident.'}
         </li>
         {/* Add other list items based on the selected language */}
         {/* ... */}
         <li>
           {selectedLanguage === 'ar'
-            ? 'التحكيم: مساعدة في إجراءاتك والاستفادة من كفاءته إما كمستشار قانوني أو كحكم تحكيم.'
+            ? "	تدقيق وتحليل وتسوية وضعيات المؤسسات طبقا للقانون."
             : selectedLanguage === 'fr'
-            ? 'Arbitrage: assister dans vos démarches et vous fera profiter de sa compétence soit en tant qu’AVOCAT CONSEIL soit en tant qu’ARBITRE.'
-            : 'Arbitration: assist in your procedures and benefit from its competence either as a legal advisor or as an arbitrator.'}
+            ? "Audit, diagnostic et régularisation de la situation de l'entreprise conformément à la loi."
+            : 'Audit, diagnosis and regularization of the company situation in accordance with the law.'}
         </li>
         {/* ... */}
       </ul>
       <p>
         {selectedLanguage === 'ar'
-          ? 'معرفة المزيد (يفتح: "اتصل بنا مباشرة لتلقي المساعدة القانونية من قبل محامٍ")'
+          ?'التحكيم: مساعدة في إجراءاتك والاستفادة من كفاءته إما كمستشار قانوني أو كمحكّم. معرفة المزيد (يفتح: "اتصل بنا مباشرة لتلقي المساعدة القانونية من قبل محامٍ").'
           : selectedLanguage === 'fr'
-          ? 'En savoir plus (s’ouvre : « contactez-nous directement pour recevoir notre assistance juridique par un avocat »)'
-          : 'Learn more (opens: "Contact us directly to receive our legal assistance from a lawyer")'}
+          ? "Arbitrage: assister dans vos démarches et vous fera profiter de sa compétence soit en tant qu’AVOCAT CONSEIL soit en tant qu’ARBITRE.En savoir plus (s’ouvre : « contactez-nous directement pour recevoir notre assistance juridique par un avocat »)"
+          : 'Arbitration: assist in your procedures and benefit from its competence either as a legal advisor or as an arbitrator.Learn more (opens: "Contact us directly to receive our legal assistance from a lawyer")'}
       </p>
     </div>
   );

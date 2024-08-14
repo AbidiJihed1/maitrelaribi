@@ -176,7 +176,7 @@ const Navbar = ({ handleLanguageChange, selectedLanguage }) => {
                         }}
                       >
                         {selectedLanguage === "ar"
-                          ? "الرسوم"
+                          ? "الأتعاب"
                           : selectedLanguage === "fr"
                           ? "HONORAIRES"
                           : "FEES"}
