@@ -38,10 +38,10 @@ const Navbar = ({ handleLanguageChange, selectedLanguage }) => {
     <>
       <div
         style={{
-          backgroundImage: `url(https://res.cloudinary.com/dm1xlu8ce/image/upload/v1707488156/pe468qchnhzaye0az6sb.jpg)`,
+          backgroundImage: `url(https://res.cloudinary.com/dm1xlu8ce/image/upload/v1723623861/qgsiciawso2nzwg8iadi.jpg)`,
           backgroundSize: "cover",
           backgroundPosition: "center",
-          minHeight:"30vh"
+          minHeight:"100vh"
         }}
       >
         <nav
