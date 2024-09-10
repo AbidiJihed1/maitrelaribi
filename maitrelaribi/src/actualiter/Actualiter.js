@@ -31,6 +31,15 @@ useEffect(()=>{
           </div>
           <div className="post-content">
             {post.imageUrl && <img className="post-image" src={post.imageUrl} alt="Post" />}
+            {post.fileUrl && post.fileUrl.endsWith('.pdf') && (
+            <iframe
+              src={post.fileUrl}
+              title="PDF File"
+              width="100%"
+              height="500px"
+              style={{ border: 'none' }}
+            />
+          )}
           </div>
        <div id='text1'>
        <p style={{fontFamily:"cursive",fontSize:"24px"}}>{post.text}</p>
