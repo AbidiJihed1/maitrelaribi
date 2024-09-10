@@ -28,7 +28,7 @@ pdfFormData.append("file", pdfFile);
 pdfFormData.append("upload_preset", "maitrefile");
 pdfFormData.append("resource_type", "raw");  // Use raw for non-image files like PDF
 
-const pdfUploadResponse = await axios.post("https://api.cloudinary.com/v1_1/dm1xlu8ce/upload", pdfFormData);
+const pdfUploadResponse = await axios.post("https://api.cloudinary.com/v1_1/dm1xlu8ce/raw/upload", pdfFormData);
 const uploadedPdfUrl = pdfUploadResponse.data.secure_url;
 console.log("Uploaded PDF URL:", uploadedPdfUrl);
 
