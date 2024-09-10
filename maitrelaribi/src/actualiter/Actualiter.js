@@ -32,12 +32,13 @@ useEffect(()=>{
           <div className="post-content">
             {post.imageUrl && <img className="post-image" src={post.imageUrl} alt="Post" />}
             {post.fileUrl && post.fileUrl.endsWith('.pdf') && (
-            <div>
-              <p>Click below to view or download the PDF:</p>
-              <a href={post.fileUrl} target="_blank" rel="noopener noreferrer">
-                View PDF
-              </a>
-            </div>
+            <iframe
+              src={post.fileUrl}
+              title="PDF File"
+              width="100%"
+              height="500px"
+              style={{ border: 'none' }}
+            />
           )}
           </div>
        <div id='text1'>

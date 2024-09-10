@@ -20,12 +20,17 @@ const PostModal = ({ isOpen, onClose, onPostuler }) => {
     const imageUploadResponse = await axios.post("https://api.cloudinary.com/v1_1/dm1xlu8ce/upload", formData);
   console.log(imageUploadResponse,'img')
     // Then, upload the PDF or any other file (if applicable)
-    const fileFormData = new FormData();
-    fileFormData.append("file", pdfFile);  // Assuming you have a state variable for the PDF file
-    fileFormData.append("upload_preset", "maitrlaaribi");
-  
-    const fileUploadResponse = await axios.post("https://api.cloudinary.com/v1_1/dm1xlu8ce/upload", fileFormData);
-  console.log(fileUploadResponse,'file')
+    const formDatafile = new FormData();
+formData.append("file", pdfFile);  // The selected PDF file
+formData.append("upload_preset", "maitrlaaribi");
+formData.append("resource_type", "auto");  // Specify resource type to auto
+
+const fileUploadResponse = await axios.post("https://api.cloudinary.com/v1_1/dm1xlu8ce/upload", formDatafile)
+
+    console.log("Uploaded file URL:", fileUploadResponse);
+    // You should now get the correct URL for the PDF
+ 
+ 
     // Dispatch the data to the backend
     dispatch(add_product({
       title: title,
