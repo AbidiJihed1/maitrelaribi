@@ -31,9 +31,10 @@ useEffect(()=>{
           </div>
           <div className="post-content">
             {post.imageUrl && <img className="post-image" src={post.imageUrl} alt="Post" />}
-            
-            <p style={{fontFamily:"cursive",fontSize:"24px"}}>{post.text}</p>
           </div>
+       <div id='text1'>
+       <p style={{fontFamily:"cursive",fontSize:"24px"}}>{post.text}</p>
+       </div>
           {user.role === "admin" && token? <button onClick={() => handleDelete(post.id)}>Delete</button>:null}
           {user.role === "admin" && token?<button onClick={() => setModalUpdateOpen(true)}>Modifer Une Post</button>:null}
           <PostModalUpdate post={post} isOpen={isModalUpdateOpen} onClose={() => setModalUpdateOpen(false)} />

@@ -27,16 +27,20 @@
   
   .post-content {
     margin-top: 10px;
+    display: flex;
+    justify-content: center;
   }
   
   .post-image {
-    max-width: 100%;
+    max-width: 400px;
     margin-bottom: 10px;
-    margin-left: 50px;
     width: 400px !important;
     height: 300px !important;
   }
-  
+  #text{
+    display: flex ;
+    justify-content: center;
+  }
 
   /* Add more styling based on your design preferences */
   
