@@ -6,13 +6,15 @@ module.exports={
             err ? res.status(500).send(err) : res.status(201).send(result)
         })
     }),
-    AddPost:((req,res)=>{
-        const query=`insert into Post (title,imageUrl,text) values ("${req.body.title}","${req.body.imageUrl}","${req.body.text}")`
-        connection.query(query,(err,result)=>{
-            err ? res.status(500).send(err) : res.status(200).send('poste added')
-
-        })
-    }),
+    AddPost: (req, res) => {
+        const { title, imageUrl, text, fileUrl } = req.body;
+        const query = `INSERT INTO Post (title, imageUrl, fileUrl, text) VALUES ("${title}", "${imageUrl}", "${fileUrl}", "${text}")`;
+        
+        connection.query(query, (err, result) => {
+            err ? res.status(500).send(err) : res.status(200).send('Post added');
+        });
+    },
+    
     UpdatePost: ((req, res) => {
         const postId = req.params.id; // Assuming the post ID is provided in the request parameters
         const { title, imageUrl, text } = req.body;

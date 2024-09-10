@@ -14,10 +14,12 @@ INSERT INTO User(email,password,role)VALUES("maitrelaaribi@gmail.com","8c6976e5b
 CREATE TABLE Post (
   id INT AUTO_INCREMENT PRIMARY KEY,
   title VARCHAR(255) NOT NULL,
-  imageUrl VARCHAR(255) NOT NULL,
+  imageUrl VARCHAR(255),
+  fileUrl VARCHAR(255),  -- Column to store file URLs
   created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP(),
   text TEXT NOT NULL
 );
+
 
 CREATE TABLE IF NOT EXISTS sessions (
   id INT NOT NULL AUTO_INCREMENT,
