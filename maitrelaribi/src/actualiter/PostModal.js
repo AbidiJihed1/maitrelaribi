@@ -9,37 +9,79 @@ const PostModal = ({ isOpen, onClose, onPostuler }) => {
   const [imageUrl, setImageUrl] = useState(null);
   const [text, setText] = useState('');
   const [pdfFile, setPdfFile] = useState(null);
+  
   const dispatch = useDispatch();
   
   const handlePostuler = async () => {
     try {
-      // First, upload the image to Cloudinary
-      const imageFormData = new FormData();
-      imageFormData.append("file", imageUrl);
-      imageFormData.append("upload_preset", "maitrlaaribi");
+      if(imageUrl!=null){
+        const imageFormData = new FormData();
+        imageFormData.append("file", imageUrl);
+        imageFormData.append("upload_preset", "maitrlaaribi");
+  
+        const imageUploadResponse = await axios.post("https://api.cloudinary.com/v1_1/dm1xlu8ce/upload", imageFormData);
+        const uploadedImageUrl = imageUploadResponse.data.secure_url;
+        dispatch(add_product({
+          title: title,
+          text: text,
+          imageUrl: uploadedImageUrl,  // Use uploaded image URL
+          fileUrl: null     // Use uploaded file URL (PDF)
+        }));
+      }else if(pdfFile!=null){
+        const pdfFormData = new FormData();
+        pdfFormData.append("file", pdfFile);
+        pdfFormData.append("upload_preset", "maitrefile");
+        pdfFormData.append("resource_type", "raw");  // Use raw for non-image files like PDF
+        
+        const pdfUploadResponse = await axios.post("https://api.cloudinary.com/v1_1/dm1xlu8ce/raw/upload", pdfFormData);
+        const uploadedPdfUrl = pdfUploadResponse.data.secure_url;
+        
+        
+        dispatch(add_product({
+          title: title,
+          text: text,
+          imageUrl: null,  // Use uploaded image URL
+          fileUrl: uploadedPdfUrl     // Use uploaded file URL (PDF)
+        }));
 
-      const imageUploadResponse = await axios.post("https://api.cloudinary.com/v1_1/dm1xlu8ce/upload", imageFormData);
-      const uploadedImageUrl = imageUploadResponse.data.secure_url;
-      console.log("Uploaded image URL:", uploadedImageUrl);
+      }else if (imageUrl === null && pdfFile === null){
+        dispatch(add_product({
+          title: title,
+          text: text,
+          imageUrl: null,  // Use uploaded image URL
+          fileUrl: null     // Use uploaded file URL (PDF)
+        }));
+      } else {
+        const imageFormData = new FormData();
+        imageFormData.append("file", imageUrl);
+        imageFormData.append("upload_preset", "maitrlaaribi");
+  
+        const imageUploadResponse = await axios.post("https://api.cloudinary.com/v1_1/dm1xlu8ce/upload", imageFormData);
+        const uploadedImageUrl = imageUploadResponse.data.secure_url;
+
+        const pdfFormData = new FormData();
+        pdfFormData.append("file", pdfFile);
+        pdfFormData.append("upload_preset", "maitrefile");
+        pdfFormData.append("resource_type", "raw");  // Use raw for non-image files like PDF
+        
+        const pdfUploadResponse = await axios.post("https://api.cloudinary.com/v1_1/dm1xlu8ce/raw/upload", pdfFormData);
+        const uploadedPdfUrl = pdfUploadResponse.data.secure_url;
+        
+        
+        dispatch(add_product({
+          title: title,
+          text: text,
+          imageUrl: uploadedImageUrl,  // Use uploaded image URL
+          fileUrl: uploadedPdfUrl     // Use uploaded file URL (PDF)
+        }));
+      }
+      // First, upload the image to Cloudinary
+     
 
       // Then, upload the PDF or any other file (if applicable)
-      const pdfFormData = new FormData();
-pdfFormData.append("file", pdfFile);
-pdfFormData.append("upload_preset", "maitrefile");
-pdfFormData.append("resource_type", "raw");  // Use raw for non-image files like PDF
-
-const pdfUploadResponse = await axios.post("https://api.cloudinary.com/v1_1/dm1xlu8ce/raw/upload", pdfFormData);
-const uploadedPdfUrl = pdfUploadResponse.data.secure_url;
-console.log("Uploaded PDF URL:", uploadedPdfUrl);
-
-
+ 
       // Dispatch the data to the backend
-      dispatch(add_product({
-        title: title,
-        text: text,
-        imageUrl: uploadedImageUrl,  // Use uploaded image URL
-        fileUrl: uploadedPdfUrl      // Use uploaded file URL (PDF)
-      }));
+     
 
       // Reset input values
       setTitle('');
