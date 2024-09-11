@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { FaEnvelope, FaPhone } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import logo from "./logo.jpg";
+import logo from "./logo.png";
 import "./navbar.css";
 const Navbar = ({ handleLanguageChange, selectedLanguage }) => {
   const [scrolling, setScrolling] = useState(false);
@@ -41,7 +41,8 @@ const Navbar = ({ handleLanguageChange, selectedLanguage }) => {
           backgroundImage: `url(https://res.cloudinary.com/dm1xlu8ce/image/upload/v1723623861/qgsiciawso2nzwg8iadi.jpg)`,
           backgroundSize: "cover",
           backgroundPosition: "center",
-          minHeight:"100vh"
+          minHeight:"100vh",
+          // position:"relative"
         }}
       >
         <nav
@@ -60,13 +61,13 @@ const Navbar = ({ handleLanguageChange, selectedLanguage }) => {
             }}
           >
             <div style={{ display: "flex", alignItems: "center" }}>
-              <a href="/">
+              {/* <a href="/">
                 <img
                   src={logo}
-                  style={{ width: "80px", height: "60px" }}
+                  // style={{ width: "80px", height: "60px" }}
                   alt="Logo"
                 />
-              </a>
+              </a> */}
               <p
                 style={{
                   marginLeft: "20px",
@@ -78,7 +79,13 @@ const Navbar = ({ handleLanguageChange, selectedLanguage }) => {
                 +216 70 256 595
               </p>
             </div>
-
+<a href="/">
+                <img
+                  src={logo}
+                  style={{ width: "130px", height: "130px" }}
+                  alt="Logo"
+                />
+              </a>
             {isMobile ? (
               <div style={{ display: "flex", alignItems: "center" }}>
                 {/* Drawer Menu for Mobile */}
@@ -383,6 +390,23 @@ const Navbar = ({ handleLanguageChange, selectedLanguage }) => {
             )}
           </div>
         </nav>
+        {/* <div
+          style={{
+            position: "absolute",
+            top: "80px", // Adjust this value based on your design
+            left: "50%",
+            transform: "translateX(-50%)",
+            zIndex: 10, // Ensures the logo stays on top of the background
+          }}
+        >
+          <a href="/">
+            <img
+              src={logo}
+              alt="Logo"
+              style={{ width: "100px", height: "80px" }} // Adjust size as needed
+            />
+          </a>
+        </div> */}
       </div>
     </>
   );
