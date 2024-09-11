@@ -7,7 +7,6 @@ module.exports={
         })
     }),
     AddPost: (req, res) => {
-        console.log(req.body)
         const { title, imageUrl, text, fileUrl } = req.body;
         const query = `INSERT INTO Post (title, imageUrl, fileUrl, text) VALUES ("${title}", "${imageUrl}", "${fileUrl}", "${text}")`;
         

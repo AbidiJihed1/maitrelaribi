@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Maps from './Maps';
 import './Contact.css';
 import axios from 'axios';
+import Swal from 'sweetalert2';
 
 const Contact = ({ selectedLanguage }) => {
   const [subject, setSubject] = useState('');
@@ -53,7 +54,13 @@ const handleAttachmentChange = (e) => {
       attachment:attachment
     }).then((res) => {
       if (res.status === 'success') {
-        console.log('ok')
+        Swal.fire({
+          position: "center",
+          icon: "success",
+          title: "Your work has been saved",
+          showConfirmButton: false,
+          timer: 1500
+        });
       }
     });
   };

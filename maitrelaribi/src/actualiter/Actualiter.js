@@ -20,7 +20,7 @@ useEffect(()=>{
   };
   return (
     <div>
-    {console.log(user)}
+
       {data.map((post, index) => (
         <div key={index} className="post-container">
           <div className="post-header">

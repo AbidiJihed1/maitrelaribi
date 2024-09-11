@@ -19,7 +19,6 @@ export const get_product = () => async (dispatch) => {
     
 }
 export const add_product = (data) => async (dispatch) => {
-  console.log(data,'test file front')
     try {
         await axios.post('https://www.maitrelaaribi.com/api/AddPoste',data)
         .then((res)=>{
