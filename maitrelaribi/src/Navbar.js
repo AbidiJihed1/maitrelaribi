@@ -7,7 +7,7 @@ const Navbar = ({ handleLanguageChange, selectedLanguage }) => {
   const [scrolling, setScrolling] = useState(false);
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
   const [drawerOpen, setDrawerOpen] = useState(false);
-  const minHeightValue = window.location.href !== "https://www.maitrelaaribi.com/" ? "100vh" : "30vh";
+  const minHeightValue = window.location.href === "https://www.maitrelaaribi.com/" ? "100vh" : "30vh";
 
   useEffect(() => {
     const handleScroll = () => {
