@@ -7,6 +7,7 @@ const Navbar = ({ handleLanguageChange, selectedLanguage }) => {
   const [scrolling, setScrolling] = useState(false);
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
   const [drawerOpen, setDrawerOpen] = useState(false);
+  const minHeightValue = window.location.href !== "https://www.maitrelaaribi.com/" ? "100vh" : "30vh";
 
   useEffect(() => {
     const handleScroll = () => {
@@ -41,7 +42,8 @@ const Navbar = ({ handleLanguageChange, selectedLanguage }) => {
           backgroundImage: `url(https://res.cloudinary.com/dm1xlu8ce/image/upload/v1723623861/qgsiciawso2nzwg8iadi.jpg)`,
           backgroundSize: "cover",
           backgroundPosition: "center",
-          minHeight:"100vh",
+       minHeight: minHeightValue,
+          
           // position:"relative"
         }}
       >
