@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { FaEnvelope, FaPhone } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import logo from "./logo.png";
+import logo from "./logo.jpg";
 import "./navbar.css";
 const Navbar = ({ handleLanguageChange, selectedLanguage }) => {
   const [scrolling, setScrolling] = useState(false);
