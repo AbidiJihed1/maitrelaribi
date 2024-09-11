@@ -23,7 +23,7 @@ export const add_product = (data) => async (dispatch) => {
     try {
         await axios.post('https://www.maitrelaaribi.com/api/AddPoste',data)
         .then((res)=>{
-            if(res.data==="poste added"){
+            if(res.data==="Post added"){
               Swal.fire({
                 position: 'center',
                 icon: 'success',
