@@ -30,7 +30,7 @@ useEffect(()=>{
             </div>
           </div>
           <div className="post-content">
-            {post.imageUrl !==null ? <img className="post-image" src={post.imageUrl}  />:null}
+            {post.imageUrl !== null ? <img className="post-image" src={post.imageUrl}  /> :<div></div> }
             {post.fileUrl && post.fileUrl.endsWith('.pdf') && (
             <iframe
               src={post.fileUrl}
