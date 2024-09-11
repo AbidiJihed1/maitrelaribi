@@ -15,7 +15,7 @@ const Maps = () => {
             <h4 className="media-heading">Tunisie</h4>
             <p style={{ paddingTop: '10px' }}>
             Complexe Carthage Center 2ème étage A27<br />
-            aveneu de carthage Tunis 1049, Tunisie<br />
+            31 Av. De Carthage, Tunis 1001, Tunisie<br />
               Tél. : +216 98 351 049<br />
               Fax. : +216 70 256 595<br />
               contact@maitrelaaribi.com
