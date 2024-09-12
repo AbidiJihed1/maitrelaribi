@@ -84,7 +84,7 @@ const Navbar = ({ handleLanguageChange, selectedLanguage }) => {
 <a href="/">
                 <img
                   src={logo}
-                  style={{ width: "130px", height: "130px" }}
+                  style={{ width: "130px", height: "100px" }}
                   alt="Logo"
                 />
               </a>
