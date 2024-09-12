@@ -23,6 +23,11 @@ const Login = () => {
       setError('Invalid email or password');
     }
   };
+  const handleKeyDown = (event) => {
+    if (event.key === 'Enter') {
+      handleLogin();
+    }
+  };
 
   return (
     <div>
@@ -33,10 +38,14 @@ const Login = () => {
       </div>
       <div>
         <label>Password:</label>
-        <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
+        <input type="password" value={password} onChange={(e) => setPassword(e.target.value)}
+        onKeyDown={handleKeyDown}
+        />
       </div>
       {error && <p style={{ color: 'red' }}>{error}</p>}
-      <button onClick={handleLogin}>Login</button>
+      <button onClick={handleLogin}
+      onKeyDown={handleKeyDown}
+      >Login</button>
     </div>
   );
 };
