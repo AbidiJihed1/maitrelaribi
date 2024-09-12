@@ -95,6 +95,11 @@ const PostModal = ({ isOpen, onClose, onPostuler }) => {
       console.error("Error uploading files:", error);
     }
   };
+  const handleKeyDown = (event) => {
+    if (event.key === 'Enter') {
+      handlePostuler();
+    }
+  };
   
   return (
     <div className={`modal ${isOpen ? 'open' : ''}`}>
@@ -113,7 +118,8 @@ const PostModal = ({ isOpen, onClose, onPostuler }) => {
         <label>Text:</label>
         <textarea value={text} onChange={(e) => setText(e.target.value)} />
         
-        <button onClick={handlePostuler}>Postuler</button>
+        <button onClick={handlePostuler} onKeyDown={handleKeyDown}
+        >Postuler</button>
       </div>
     </div>
   );
