@@ -9,6 +9,7 @@ import About from './components/About.js'
 import Formation from './components/Formation.js'
 import ConsultationComponent from './services/Consultation.js';
 import HonorairesPolitiqueComponent from './services/HonorairePolitique.js';
+import ChatBot from './CHat.js';
 import Test from './services/Test.js'
 const Home = ({selectedLanguage}) => {
   const carouselImages = [
@@ -39,6 +40,7 @@ const Home = ({selectedLanguage}) => {
 
   return (
     <div style={{ position: 'relative', maxWidth: '100%', overflow: 'hidden' }}>
+
       <SocialMediaIcons />
       <About selectedLanguage={selectedLanguage}/>
       <Flags selectedLanguage={selectedLanguage} />
@@ -58,6 +60,7 @@ const Home = ({selectedLanguage}) => {
 <div style={{ display: 'flex', justifyContent: 'center'}}>
   <Maps />
 </div>
+<ChatBot />
 </div>
   );
 };

@@ -5,6 +5,7 @@ const cors = require("cors");
 const bodyParser = require('body-parser');
 const {mailrouter}=require('./routers/mailRouter')
 const {ActRouter}=require('./routers/ActualiteRouters')
+const {chatrouter}=require('./routers/router')
 // require("dotenv").config();
 app.use(
   cors({
@@ -20,5 +21,6 @@ app.use(express.json());
 app.use(cookieParser());
 app.use('/',mailrouter)
 app.use('/',ActRouter)
+app.use('/',chatrouter)
 
 module.exports = app;
