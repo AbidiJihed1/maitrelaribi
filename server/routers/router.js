@@ -21,7 +21,7 @@ router.post('/api/chat', async (req, res) => {
       max_tokens: 150
     }, {
       headers: {
-        'Authorization': `Bearer sk-svcacct-ydAWef80hXReUMj2lR9CXdf5GaZvPfIkCPNyp9WDpGU_ZX5tK_Z45Z85MYXcB-mrvOj7SqHImA_3LT3BlbkFJK29yMqtqDt0wOqrkq8-rhyO62VIls45xGGleIlaeOvEFX5i_WZa157i3nT3BZdYBoUqGJqVIcB_AA`,
+        'Authorization': `Bearer `,
         'Content-Type': 'application/json'
       }
     });
