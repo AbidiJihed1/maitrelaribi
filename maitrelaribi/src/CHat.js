@@ -183,6 +183,7 @@ export default function App() {
                 label="Type your message"
                 id="textAreaExample"
                 rows={4}
+                value={input}
                 onChange={(e) => setInput(e.target.value)}
                 onKeyDown={(e) => e.key === 'Enter' && sendMessage()}
               />
