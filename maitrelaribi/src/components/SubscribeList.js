@@ -12,7 +12,7 @@ const SubscribeList = () => {
         alert(`Email sent to ${email}`);
     };
     useEffect(()=>{
-        axios.get('http://localhost:5800//api/getemailsubscribe')
+        axios.get('https://www.maitrelaaribi.com/api/getemailsubscribe')
         .then((res)=>{
             console.log(res.data)
         })
