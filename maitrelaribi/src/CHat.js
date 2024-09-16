@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import logo from './logo.png';
-import './Chat.css'; // Make sure the filename is correct
+import './Chat.css'; // Ensure this file exists and is correctly named
 import {
   MDBContainer,
   MDBRow,
@@ -15,60 +15,29 @@ import {
 export default function App() {
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState("");
-  const [email, setEmail] = useState(""); // Store user email
-  const [emailSubmitted, setEmailSubmitted] = useState(false); // Track if email was submitted
-
-  const responses = {
-    email: "Notre Email est contact@maitrelaaribi.com",
-    phone: "Notre Numéro de téléphone est +216 70 256 595.",
-  };
-
-  const isValidEmail = (email) => {
-    // Simple email validation regex
-    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-  };
 
   const sendMessage = async () => {
     if (!input.trim()) return;
 
     const userMessage = { sender: "user", text: input };
-    setMessages([...messages, userMessage]);
+    const updatedMessages = [...messages, userMessage];
+    setMessages(updatedMessages);
 
-    let botResponse = "";
-
-    if (!emailSubmitted) {
-      // Validate and store the email
-      if (isValidEmail(input)) {
-        setEmail(input); // Set the email
-        setEmailSubmitted(true); // Mark email as submitted
-        botResponse = "Thank you for providing your email. How can I assist you further?";
-      } else {
-        botResponse = "Please provide a valid email address to continue.";
-      }
-    } else {
-      // Handle contact information requests
-      if (input.toLowerCase().includes("email") || input.toLowerCase().includes("contact")) {
-        botResponse = responses.email;
-      } else if (input.toLowerCase().includes("phone") || input.toLowerCase().includes("number")) {
-        botResponse = responses.phone;
-      } else {
-        // Regular message after email is submitted
-        try {
-          const response = await fetch("https://www.maitrelaaribi.com/api/chat", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ message: input, email }) // Send email with message
-          });
-
-          const data = await response.json();
-          botResponse = data.response;
-        } catch (error) {
-          botResponse = "Sorry, there was an error processing your request.";
-        }
-      }
+    // Send to backend
+    try {
+      const response = await fetch("https://www.maitrelaaribi.com/api/chat", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ message: input })
+      });
+      
+      const data = await response.json();
+      const botMessage = { sender: "bot", text: data.response };
+      setMessages([...updatedMessages, botMessage]);
+    } catch (error) {
+      console.error("Error fetching response:", error);
+      setMessages([...updatedMessages, { sender: "bot", text: "Sorry, there was an error processing your request." }]);
     }
-
-    setMessages([...messages, { sender: "bot", text: botResponse }]);
     setInput(""); // Clear input
   };
 
@@ -92,6 +61,7 @@ export default function App() {
             <MDBCardBody>
               {messages.map((msg, index) => (
                 <div key={index}>
+                  {console.log("Message:", msg)} {/* Debugging line */}
                   {msg.sender === 'user' ? (
                     <div className="d-flex flex-row justify-content-start mb-4">
                       <img
@@ -129,10 +99,10 @@ export default function App() {
                   )}
                 </div>
               ))}
-
               <MDBTextArea
                 className="form-outline"
-                label={!emailSubmitted ? "Enter your email" : "Type your message"}
+                label="Type your message"
+                id="textAreaExample"
                 rows={4}
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
