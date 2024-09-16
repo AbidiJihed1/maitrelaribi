@@ -51,7 +51,7 @@ const Footer = () => {
      
       <div className="footer-copyright">
         <p>&copy; 2024 Maitre Laaribi. All rights reserved.<br></br>
-        Powerd by Noja Team
+        Powerd by Abidi Jihed
         </p>
       </div>
     </footer>

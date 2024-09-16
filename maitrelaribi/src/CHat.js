@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import logo from './logo.png';
-import './CHat.css';
+import './Chat.css'; // Make sure the filename is correct
 import {
   MDBContainer,
   MDBRow,
@@ -18,41 +18,50 @@ export default function App() {
   const [email, setEmail] = useState(""); // Store user email
   const [emailSubmitted, setEmailSubmitted] = useState(false); // Track if email was submitted
 
+  const responses = {
+    email: "You can reach us at contact@example.com.",
+    phone: "Our phone number is +123456789.",
+  };
+
   const sendMessage = async () => {
     if (!input.trim()) return;
 
-    if (!emailSubmitted) {
-      // If email is not yet submitted, we first capture the email
-      const emailMessage = { sender: "user", text: input };
-      setMessages([...messages, emailMessage]);
+    const userMessage = { sender: "user", text: input };
+    setMessages([...messages, userMessage]);
 
-      // Send the email to backend
-      const response = await fetch("https://www.maitrelaaribi.com/api/chat", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ message: input, email })
-      });
+    let botResponse = "";
 
-      const data = await response.json();
-      setMessages([...messages, emailMessage, { sender: "bot", text: data.response }]);
-      setEmail(input); // Set the email
-      setEmailSubmitted(true); // Mark email as submitted
-      setInput(""); // Clear input
+    // Handle contact information requests
+    if (input.toLowerCase().includes("email") || input.toLowerCase().includes("contact")) {
+      botResponse = responses.email;
+    } else if (input.toLowerCase().includes("phone") || input.toLowerCase().includes("number")) {
+      botResponse = responses.phone;
     } else {
-      // Regular message after email is submitted
-      const userMessage = { sender: "user", text: input };
-      setMessages([...messages, userMessage]);
+      // Process the message if not a contact information request
+      if (!emailSubmitted) {
+        // If email is not yet submitted, we first capture the email
+        setEmail(input); // Set the email
+        setEmailSubmitted(true); // Mark email as submitted
+        botResponse = "Thank you for providing your email. How can I assist you further?";
+      } else {
+        // Regular message after email is submitted
+        try {
+          const response = await fetch("https://www.maitrelaaribi.com/api/chat", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ message: input, email }) // Send email with message
+          });
 
-      const response = await fetch("https://www.maitrelaaribi.com/api/chat", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ message: input, email }) // Send email with message
-      });
-
-      const data = await response.json();
-      setMessages([...messages, userMessage, { sender: "bot", text: data.response }]);
-      setInput("");
+          const data = await response.json();
+          botResponse = data.response;
+        } catch (error) {
+          botResponse = "Sorry, there was an error processing your request.";
+        }
+      }
     }
+
+    setMessages([...messages, { sender: "bot", text: botResponse }]);
+    setInput(""); // Clear input
   };
 
   return (
