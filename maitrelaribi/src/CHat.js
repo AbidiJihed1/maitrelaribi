@@ -19,8 +19,8 @@ export default function App() {
   const [emailSubmitted, setEmailSubmitted] = useState(false); // Track if email was submitted
 
   const responses = {
-    email: "You can reach us at contact@example.com.",
-    phone: "Our phone number is +123456789.",
+    email: "Notre Email est contact@maitrelaaribi.com",
+    phone: "Notre Numéro de teléphone est +216 70 256 595 ou bien +216 70 256 595",
   };
 
   const sendMessage = async () => {
@@ -84,6 +84,7 @@ export default function App() {
             <MDBCardBody>
               {messages.map((msg, index) => (
                 <div key={index}>
+                  {console.log(msg)}
                   {msg.sender === 'user' ? (
                     <div className="d-flex flex-row justify-content-start mb-4">
                       <img
