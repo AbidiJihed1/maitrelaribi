@@ -7,7 +7,7 @@ const SubscribeForm = () => {
   const handleSubscribe = () => {
     if (email) {
       // Handle subscription logic here (e.g., send email to API)
-      axios.post("https://www.maitrelaaribi.com//api/subscribe",{email}).then((res)=>{
+      axios.post("https://www.maitrelaaribi.com/api/subscribe",{email}).then((res)=>{
         console.log(res)
       })
       console.log(`Subscribed with email: ${email}`);
