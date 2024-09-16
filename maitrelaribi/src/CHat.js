@@ -16,6 +16,12 @@ export default function App() {
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState("");
 
+  // Define responses for specific queries
+  const responses = {
+    email: "Notre email est contact@maitrelaaribi.com",
+    phone: "Notre numéro de téléphone est +216 70 256 595",
+  };
+
   const sendMessage = async () => {
     if (!input.trim()) return;
 
@@ -23,21 +29,32 @@ export default function App() {
     const updatedMessages = [...messages, userMessage];
     setMessages(updatedMessages);
 
-    // Send to backend
-    try {
-      const response = await fetch("https://www.maitrelaaribi.com/api/chat", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ message: input })
-      });
-      
-      const data = await response.json();
-      const botMessage = { sender: "bot", text: data.response };
-      setMessages([...updatedMessages, botMessage]);
-    } catch (error) {
-      console.error("Error fetching response:", error);
-      setMessages([...updatedMessages, { sender: "bot", text: "Sorry, there was an error processing your request." }]);
+    // Determine bot response based on user input
+    let botResponse = "";
+
+    // Check for email or phone number queries
+    if (input.toLowerCase().includes("email") || input.toLowerCase().includes("contact")) {
+      botResponse = responses.email;
+    } else if (input.toLowerCase().includes("phone") || input.toLowerCase().includes("number")) {
+      botResponse = responses.phone;
+    } else {
+      // Send to backend if not a contact information query
+      try {
+        const response = await fetch("https://www.maitrelaaribi.com/api/chat", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ message: input })
+        });
+
+        const data = await response.json();
+        botResponse = data.response;
+      } catch (error) {
+        console.error("Error fetching response:", error);
+        botResponse = "Désolé, il y a eu une erreur lors du traitement de votre demande.";
+      }
     }
+
+    setMessages([...updatedMessages, { sender: "bot", text: botResponse }]);
     setInput(""); // Clear input
   };
 
