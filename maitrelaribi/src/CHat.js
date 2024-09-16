@@ -19,7 +19,7 @@ export default function App() {
   // Define responses for specific queries
   const responses = {
     email: "Notre email est contact@maitrelaaribi.com",
-    phone: "Notre numéro de téléphone est +216 70 256 595",
+    phone: "Notre numéro de téléphone est +216 70 256 595 ou bien +216 98 351 049",
   };
 
   const sendMessage = async () => {
@@ -78,7 +78,6 @@ export default function App() {
             <MDBCardBody>
               {messages.map((msg, index) => (
                 <div key={index}>
-                  {console.log("Message:", msg)} {/* Debugging line */}
                   {msg.sender === 'user' ? (
                     <div className="d-flex flex-row justify-content-start mb-4">
                       <img
