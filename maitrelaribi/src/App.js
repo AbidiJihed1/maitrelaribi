@@ -19,6 +19,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { get_product } from './redux/action/actionPost.js';
 import Login from './components/Login.js';
 import FormationComponent from './components/Formation.js';
+import SubscribeList from './components/SubscribeList.js';
 const App = () => {
   const dispatch=useDispatch()
   useEffect(()=>{
@@ -50,7 +51,8 @@ const App = () => {
         <Route path="/Actualités" element={<Actualiter data={data} selectedLanguage={selectedLanguage}/>} />
         <Route path="/login/admin" element={<Login/>} />
         <Route path="/honoraire" element={<HonorairesPolitiqueComponent selectedLanguage={selectedLanguage}/>} />
-
+        
+        <Route path="/SubscribeList" element={<SubscribeList />} />
 
     </Routes>
     <Footer />

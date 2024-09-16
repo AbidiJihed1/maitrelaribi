@@ -1,9 +1,9 @@
-DROP DATABASE IF EXISTS maitrelaribi_db;
-CREATE DATABASE IF NOT EXISTS maitrelaribi_db;
-USE maitrelaribi_db;
+-- DROP DATABASE IF EXISTS maitrelaribi_db;
+-- CREATE DATABASE IF NOT EXISTS maitrelaribi_db;
+-- USE maitrelaribi_db;
 
 -- Create User table
-CREATE TABLE User (
+CREATE TABLE IF NOT EXISTS User (
   id INT AUTO_INCREMENT PRIMARY KEY,
   email VARCHAR(255) NOT NULL,
   password VARCHAR(255) NOT NULL,
@@ -11,7 +11,7 @@ CREATE TABLE User (
 );
 INSERT INTO User(email,password,role)VALUES("maitrelaaribi@gmail.com","8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918","admin");
 -- Create Post table
-CREATE TABLE Post (
+CREATE TABLE IF NOT EXISTS Post (
   id INT AUTO_INCREMENT PRIMARY KEY,
   title VARCHAR(255) NOT NULL,
   imageUrl VARCHAR(255),
@@ -28,4 +28,11 @@ CREATE TABLE IF NOT EXISTS sessions (
   date VARCHAR(250) NOT NULL,
   PRIMARY KEY (id),
   FOREIGN KEY (User_id) REFERENCES User(id)
+);
+CREATE TABLE IF NOT EXISTS subscribe (
+  id INT NOT NULL AUTO_INCREMENT,
+  email VARCHAR(250) NOT NULL,
+  test BOOLEAN DEFAULT FALSE,
+  created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP(),
+  PRIMARY KEY (id)
 );

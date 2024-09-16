@@ -1,0 +1,78 @@
+.wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.wrapper .content {
+  background: #2d2af5;
+  padding: 40px;
+  width: 100%;
+  max-width: 500px;
+  min-width: 200px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.wrapper .content header h1 {
+  font-size: 2.3em;
+  margin-top: 0;
+  color: #fff;
+}
+
+.wrapper .content section {
+  color: #ddd; /* Replace with var(--p-color) if defined */
+  font-size: 15px;
+  margin-bottom: 20px;
+}
+
+.wrapper .content footer {
+  padding: 15px; /* Replace with var(--padding-15) if defined */
+}
+
+.wrapper .content footer input {
+  border: none;
+  background-color: #f3f3f3; /* Replace with var(--input-background) if defined */
+  padding: 15px; /* Replace with var(--padding-15) if defined */
+  font-size: 13px;
+  border-radius: 50px; /* Replace with var(--radius-50) if defined */
+  width: 250px;
+  margin-right: 10px;
+}
+
+.wrapper .content footer button {
+  background-color: #4CAF50; /* Replace with var(--button-background) if defined */
+  color: #fff;
+  border: none;
+  width: 120px;
+  border-radius: 50px; /* Replace with var(--radius-50) if defined */
+  padding: 15px; /* Replace with var(--padding-15) if defined */
+  cursor: pointer;
+}
+
+.wrapper .content footer input:focus, 
+.wrapper .content footer button:focus {
+  outline: none;
+}
+
+.wrapper .content footer input::placeholder {
+  color: #bbb; /* Style placeholder text */
+}
+
+.wrapper .content footer button:hover {
+  background-color: #45a049; /* Slight hover effect for button */
+}
+
+@media screen and (max-width: 720px) {
+  .wrapper .content {
+    margin-right: 20px !important;
+    margin-left: 20px !important;
+    padding: 15px; /* Replace with var(--padding-15) if defined */
+  }
+
+  .wrapper .content footer input {
+    width: 200px;
+    margin-bottom: 10px;
+  }
+}

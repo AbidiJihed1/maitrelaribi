@@ -3,13 +3,23 @@ import { FaEnvelope, FaPhone } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import logo from "./logo.png";
 import "./navbar.css";
+import { get_user } from "./redux/action/actionPost";
+import { useDispatch, useSelector } from 'react-redux';
+
 const Navbar = ({ handleLanguageChange, selectedLanguage }) => {
   const [scrolling, setScrolling] = useState(false);
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
   const [drawerOpen, setDrawerOpen] = useState(false);
+  const [token, setToken] = useState('');
   const minHeightValue = window.location.href === "https://www.maitrelaaribi.com/" ? "100vh" : "30vh";
+  const user = useSelector((state) => state.user);
+  const dispatch = useDispatch();
 
   useEffect(() => {
+    const token1 = localStorage.getItem('token');
+    dispatch(get_user());
+    setToken(token1);
+
     const handleScroll = () => {
       if (window.scrollY > 0) {
         setScrolling(true);
@@ -110,7 +120,7 @@ const Navbar = ({ handleLanguageChange, selectedLanguage }) => {
                     style={{
                       backgroundColor: "#7ba5a1",
                       position: "fixed",
-                      top: "60px",
+                      top: "100px",
                       left: 0,
                       width: "100%",
                       padding: "10px",
@@ -229,6 +239,24 @@ const Navbar = ({ handleLanguageChange, selectedLanguage }) => {
                       </span>
                     </Link>
                   </li>
+                 {user.role === "admin" && token &&( <li style={{ margin: "10px" }}>
+                    <Link to="/SubscribeList" className="navbar-link">
+                      <span
+                        className="hovernav"
+                        style={{
+                          color: "white",
+                          fontFamily: "Arial, sans-serif",
+                          transition: "color 0.3s",
+                        }}
+                      >
+                        {selectedLanguage === "ar"
+                          ? "اشترك"
+                          : selectedLanguage === "fr"
+                          ? "SubscribeList"
+                          : "SubscribeList"}
+                      </span>
+                    </Link>
+                  </li>)}
                     </ul>
                     <div style={{ marginLeft: "10px" }}>
                       <select
@@ -369,6 +397,24 @@ const Navbar = ({ handleLanguageChange, selectedLanguage }) => {
                       </span>
                     </Link>
                   </li>
+                  {user.role === "admin" && token &&(<li style={{ margin: "10px" }}>
+                    <Link to="/SubscribeList" className="navbar-link">
+                      <span
+                        className="hovernav"
+                        style={{
+                          color: "white",
+                          fontFamily: "Arial, sans-serif",
+                          transition: "color 0.3s",
+                        }}
+                      >
+                        {selectedLanguage === "ar"
+                          ? "اشترك"
+                          : selectedLanguage === "fr"
+                          ? "SubscribeList"
+                          : "SubscribeList"}
+                      </span>
+                    </Link>
+                  </li>)}
                 </ul>
 
                 {/* Language Selector */}

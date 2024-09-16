@@ -32,9 +32,8 @@
   }
   
   .post-image {
-    max-width: 400px;
+    max-width: 100%;
     margin-bottom: 10px;
-    width: 400px !important;
     height: 300px !important;
   }
   div#text1 {

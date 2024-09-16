@@ -27,5 +27,49 @@ module.exports = {
         }
       });
     },
+    Subscribe:(req,res)=>{
+      const { email } = req.body;
+
+      if (!email) {
+        return res.status(400).json({ error: 'Email is required' });
+      }
+    
+      // Check if the email already exists
+      const checkEmailQuery = 'SELECT * FROM subscribe WHERE email = ?';
+      connection.query(checkEmailQuery, [email], (err, results) => {
+        if (err) {
+          console.error('Error checking email:', err);
+          return res.status(500).json({ error: 'Database error' });
+        }
+    
+        if (results.length > 0) {
+          // If email exists, update the 'test' field to true
+          const updateQuery = 'UPDATE subscribe SET test = true WHERE email = ?';
+          connection.query(updateQuery, [email], (err, updateResult) => {
+            if (err) {
+              console.error('Error updating email:', err);
+              return res.status(500).json({ error: 'Database error' });
+            }
+            return res.json({ message: 'Email already exists, test updated to true' });
+          });
+        } else {
+          // If email does not exist, insert the email with test = false (default)
+          const insertQuery = 'INSERT INTO subscribe (email) VALUES (?)';
+          connection.query(insertQuery, [email], (err, insertResult) => {
+            if (err) {
+              console.error('Error inserting email:', err);
+              return res.status(500).json({ error: 'Database error' });
+            }
+            return res.json({ message: 'Email inserted successfully', id: insertResult.insertId });
+          });
+        }
+      });
+    },
+    GetallEmail:((req,res)=>{
+      const query='select * from subscribe'
+      connection.query(query,(err,result)=>{
+          err ? res.status(500).send(err) : res.status(201).send(result)
+      })
+  }),
   };
   
