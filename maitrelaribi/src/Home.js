@@ -37,7 +37,20 @@ const Home = ({selectedLanguage}) => {
       },
     ],
   };
-
+  async function getIPAddress() {
+    try {
+      const response = await fetch('https://api.ipify.org?format=json');
+      const data = await response.json();
+      console.log('Your IP Address is: ', data.ip);
+      return data.ip;
+    } catch (error) {
+      console.error('Error fetching IP address:', error);
+    }
+  }
+  
+  // Call the function
+  getIPAddress();
+  
   return (
     <div style={{ position: 'relative', maxWidth: '100%', overflow: 'hidden' }}>
 
