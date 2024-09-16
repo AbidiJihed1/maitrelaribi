@@ -20,7 +20,12 @@ export default function App() {
 
   const responses = {
     email: "Notre Email est contact@maitrelaaribi.com",
-    phone: "Notre Numéro de teléphone est +216 70 256 595 ou bien +216 70 256 595",
+    phone: "Notre Numéro de téléphone est +216 70 256 595.",
+  };
+
+  const isValidEmail = (email) => {
+    // Simple email validation regex
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
   };
 
   const sendMessage = async () => {
@@ -31,18 +36,21 @@ export default function App() {
 
     let botResponse = "";
 
-    // Handle contact information requests
-    if (input.toLowerCase().includes("email") || input.toLowerCase().includes("contact")) {
-      botResponse = responses.email;
-    } else if (input.toLowerCase().includes("phone") || input.toLowerCase().includes("number")) {
-      botResponse = responses.phone;
-    } else {
-      // Process the message if not a contact information request
-      if (!emailSubmitted) {
-        // If email is not yet submitted, we first capture the email
+    if (!emailSubmitted) {
+      // Validate and store the email
+      if (isValidEmail(input)) {
         setEmail(input); // Set the email
         setEmailSubmitted(true); // Mark email as submitted
         botResponse = "Thank you for providing your email. How can I assist you further?";
+      } else {
+        botResponse = "Please provide a valid email address to continue.";
+      }
+    } else {
+      // Handle contact information requests
+      if (input.toLowerCase().includes("email") || input.toLowerCase().includes("contact")) {
+        botResponse = responses.email;
+      } else if (input.toLowerCase().includes("phone") || input.toLowerCase().includes("number")) {
+        botResponse = responses.phone;
       } else {
         // Regular message after email is submitted
         try {
@@ -84,7 +92,6 @@ export default function App() {
             <MDBCardBody>
               {messages.map((msg, index) => (
                 <div key={index}>
-                  {console.log(msg)}
                   {msg.sender === 'user' ? (
                     <div className="d-flex flex-row justify-content-start mb-4">
                       <img
