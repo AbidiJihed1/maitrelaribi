@@ -1,6 +1,6 @@
 -- DROP DATABASE IF EXISTS maitrelaribi_db;
 -- CREATE DATABASE IF NOT EXISTS maitrelaribi_db;
--- USE maitrelaribi_db;
+USE maitrelaribi_db;
 
 -- Create User table
 CREATE TABLE IF NOT EXISTS User (
