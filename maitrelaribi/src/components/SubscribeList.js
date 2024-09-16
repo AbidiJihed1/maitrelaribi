@@ -1,12 +1,8 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import './SubscribeList.css'; // Create and import your CSS file
 import axios from 'axios';
 const SubscribeList = () => {
-    const subscribers = [
-        { email: 'test1@gmail.com', created_at: '12/02/2024' },
-        { email: 'test2@gmail.com', created_at: '15/02/2024' },
-        { email: 'test3@gmail.com', created_at: '18/02/2024' }
-    ];
+    const [subscribers,setSubscribers] = useState([])
 
     const sendEmail = (email) => {
         alert(`Email sent to ${email}`);
@@ -14,7 +10,7 @@ const SubscribeList = () => {
     useEffect(()=>{
         axios.get('https://www.maitrelaaribi.com/api/getemailsubscribe')
         .then((res)=>{
-            console.log(res.data)
+            setSubscribers(res.data)
         })
     })
 

@@ -19,7 +19,7 @@ function Subscribe({show,setShow}) {
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>
-            <SubscribeForm />
+            <SubscribeForm handleClose={handleClose} />
         </Modal.Body>
         {/* <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>

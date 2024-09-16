@@ -1,18 +1,34 @@
 import React, { useState } from 'react';
 import './Subscribe.css'; // Assuming you will have some custom styling for this component
 import axios from 'axios';
+import Swal from 'sweetalert2';
 const SubscribeForm = () => {
   const [email, setEmail] = useState("");
 
-  const handleSubscribe = () => {
+  const handleSubscribe = ({handleClose}) => {
     if (email) {
       // Handle subscription logic here (e.g., send email to API)
       axios.post("https://www.maitrelaaribi.com/api/subscribe",{email}).then((res)=>{
-        console.log(res)
+       if(res.data.message==="Email inserted successfully"){
+        handleClose()
+        Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title: "Votre Poste a été enregistré.",
+            showConfirmButton: false,
+            timer: 1500
+          })
+       }
       })
       console.log(`Subscribed with email: ${email}`);
     } else {
       alert("Please enter a valid email.");
+    }
+  };
+  const handleKeyDown = (event) => {
+    if (event.key === 'Enter') {
+        handleSubscribe();
+      
     }
   };
 
@@ -30,8 +46,11 @@ const SubscribeForm = () => {
             placeholder="Enter your email" 
             value={email} 
             onChange={(e) => setEmail(e.target.value)} 
+            onKeyDown={handleKeyDown}
           />
-          <button onClick={handleSubscribe}>Subscribe</button>
+          <button onClick={handleSubscribe}
+          onKeyDown={handleKeyDown}
+          >Subscribe</button>
         </footer>
       </div>
     </section>
