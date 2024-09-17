@@ -23,7 +23,7 @@ const Services = ({ selectedLanguage }) => {
       </h1>
       <div className='row' style={{ display: "flex", justifyContent: "center" }}>
         <div className="col-sm-3" onClick={() => navigate('/DroitDesAffaires')}>
-          <div className="practice-item" style={{ backgroundImage: "url('https://honors.fiu.edu/wp-content/uploads/2024/04/law1.jpg')" }}>
+          <div className="practice-item" style={{ backgroundImage: "url('./law1.jpg')" }}>
             <div className='test'>
               <div className="practice_inner">
                 <div className="practice-icon">
