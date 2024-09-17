@@ -23,7 +23,7 @@ const Services = ({ selectedLanguage }) => {
       </h1>
       <div className='row' style={{ display: "flex", justifyContent: "center" }}>
         <div className="col-sm-3" onClick={() => navigate('/DroitDesAffaires')}>
-          <div className="practice-item" style={{ backgroundImage: "url('https://example.com/image1.jpg')" }}>
+          <div className="practice-item" style={{ backgroundImage: "url('https://honors.fiu.edu/wp-content/uploads/2024/04/law1.jpg')" }}>
             <div className='test'>
               <div className="practice_inner">
                 <div className="practice-icon">
@@ -45,7 +45,7 @@ const Services = ({ selectedLanguage }) => {
         </div>
 
         <div className="col-sm-3" onClick={() => navigate('/DroitCivil')}>
-          <div className="practice-item" style={{ backgroundImage: "url('https://example.com/image2.jpg')" }}>
+          <div className="practice-item" style={{ backgroundImage: "url('https://honors.fiu.edu/wp-content/uploads/2024/04/law1.jpg')" }}>
             <div className='test'>
               <div className="practice_inner">
                 <div className="practice-icon">
@@ -67,7 +67,7 @@ const Services = ({ selectedLanguage }) => {
         </div>
 
         <div className="col-sm-3" onClick={() => navigate('/DroitImmobilier')}>
-          <div className="practice-item" style={{ backgroundImage: "url('https://example.com/image3.jpg')" }}>
+          <div className="practice-item" style={{ backgroundImage: "url('https://honors.fiu.edu/wp-content/uploads/2024/04/law1.jpg')" }}>
             <div className='test'>
               <div className="practice_inner">
                 <div className="practice-icon">
@@ -89,7 +89,7 @@ const Services = ({ selectedLanguage }) => {
         </div>
 
         <div className="col-sm-3" onClick={() => navigate('/DroitDesAssurances')}>
-          <div className="practice-item" style={{ backgroundImage: "url('https://example.com/image4.jpg')" }}>
+          <div className="practice-item" style={{ backgroundImage: "url('https://honors.fiu.edu/wp-content/uploads/2024/04/law1.jpg')" }}>
             <div className='test'>
               <div className="practice_inner">
                 <div className="practice-icon">
@@ -111,7 +111,7 @@ const Services = ({ selectedLanguage }) => {
         </div>
 
         <div className="col-sm-3" onClick={() => navigate('/DroitPénal')}>
-          <div className="practice-item" style={{ backgroundImage: "url('https://example.com/image5.jpg')" }}>
+          <div className="practice-item" style={{ backgroundImage: "url('https://honors.fiu.edu/wp-content/uploads/2024/04/law1.jpg')" }}>
             <div className='test'>
               <div className="practice_inner">
                 <div className="practice-icon">
@@ -134,7 +134,7 @@ const Services = ({ selectedLanguage }) => {
 
         {/* New Service Section */}
         <div className="col-sm-3" onClick={() => navigate('/CorporateLaw')}>
-          <div className="practice-item" style={{ backgroundImage: "url('https://example.com/image6.jpg')" }}>
+          <div className="practice-item" style={{ backgroundImage: "url('https://honors.fiu.edu/wp-content/uploads/2024/04/law1.jpg')" }}>
             <div className='test'>
               <div className="practice_inner">
                 <div className="practice-icon">
@@ -156,7 +156,7 @@ const Services = ({ selectedLanguage }) => {
         </div>
 
         <div className="col-sm-3" onClick={() => navigate('/Formation')}>
-          <div className="practice-item" style={{ backgroundImage: "url('https://example.com/image7.jpg')" }}>
+          <div className="practice-item" style={{ backgroundImage: "url('https://honors.fiu.edu/wp-content/uploads/2024/04/law1.jpg')" }}>
             <div className='test'>
               <div className="practice_inner">
                 <div className="practice-icon">
