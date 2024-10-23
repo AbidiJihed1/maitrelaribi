@@ -1,5 +1,5 @@
--- DROP DATABASE IF EXISTS maitrelaribi_db;
--- CREATE DATABASE IF NOT EXISTS maitrelaribi_db;
+DROP DATABASE IF EXISTS maitrelaribi_db;
+CREATE DATABASE IF NOT EXISTS maitrelaribi_db;
 USE maitrelaribi_db;
 
 -- Create User table
